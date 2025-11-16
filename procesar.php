@@ -5,7 +5,7 @@ $nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $direccion = $_POST['direccion'];
 
-$to = "tucorreo@dominio.com";  // <<--- CAMBIA ESTO
+$to = "abdelalilahiaoui8@gmail.com";  // <<--- CAMBIA ESTO
 $subject = "Nuevo pedido ABAIA: $producto";
 
 $message = "Has recibido un nuevo pedido:\n\n" .
