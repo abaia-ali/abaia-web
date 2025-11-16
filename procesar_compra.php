@@ -1,16 +1,4 @@
 <?php
-// Incluir PHPMailer sin Composer
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-require 'PHPMailer/src/Exception.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Leer variables de entorno definidas en Render
-$smtpUser = getenv('SMTP_USER');
-$smtpPass = getenv('SMTP_PASS');
-
 // Evita acceso directo
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("<h2>No puedes acceder directamente a esta página.</h2>");
@@ -23,46 +11,48 @@ $nombre    = $_POST['nombre']    ?? null;
 $email     = $_POST['email']     ?? null;
 $direccion = $_POST['direccion'] ?? null;
 
-// Validación simple
+// Validación
 if (!$producto || !$precio || !$nombre || !$email || !$direccion) {
     die("<h2>Error: faltan datos del pedido.</h2>");
 }
 
-// Evitar inyección de cabeceras
-$nombre = str_replace(["\r", "\n"], '', $nombre);
-$email = str_replace(["\r", "\n"], '', $email);
-$producto = str_replace(["\r", "\n"], '', $producto);
+// Preparar datos del correo
+$apiKey = getenv('BREVO_API_KEY'); // Variable de entorno
+$to = "abdelalilahiaoui8@gmail.com";
 
-$mail = new PHPMailer(true);
+$subject = "Nuevo pedido ABAIA: $producto";
+$content = "Has recibido un nuevo pedido:\n\n".
+           "Producto: $producto\n".
+           "Precio: $precio €\n".
+           "Nombre: $nombre\n".
+           "Email: $email\n".
+           "Dirección:\n$direccion";
 
-try {
-    // Configuración SMTP
-    $mail->isSMTP();
-    $mail->Host       = 'smtp-relay.brevo.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = $smtpUser;   // Usuario desde variable de entorno
-    $mail->Password   = $smtpPass;   // Contraseña desde variable de entorno
-    $mail->SMTPSecure = 'tls';
-    $mail->Port       = 587;
+// Enviar correo usando API de Brevo
+$data = [
+    "sender" => ["name" => "ABAIA", "email" => "no-reply@abaia.es"],
+    "to" => [["email" => $to]],
+    "subject" => $subject,
+    "textContent" => $content
+];
 
-    // Destinatario y remitente
-    $mail->setFrom('no-reply@abaia.es', 'ABAIA');
-    $mail->addAddress('abdelalilahiaoui8@gmail.com');
+$ch = curl_init("https://api.brevo.com/v3/smtp/email");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "accept: application/json",
+    "api-key: $apiKey",
+    "content-type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-    // Contenido del correo
-    $mail->Subject = "Nuevo pedido ABAIA: $producto";
-    $mail->Body    = "Has recibido un nuevo pedido:\n\n".
-                     "Producto: $producto\n".
-                     "Precio: $precio €\n".
-                     "Nombre: $nombre\n".
-                     "Email: $email\n".
-                     "Dirección:\n$direccion";
+$response = curl_exec($ch);
 
-    // Enviar
-    $mail->send();
+if(curl_errno($ch)) {
+    echo "<h2>Error al enviar el pedido: ".curl_error($ch)."</h2>";
+} else {
     echo "<h2>Pedido enviado correctamente. Gracias por colaborar ❤️</h2>";
-
-} catch (Exception $e) {
-    echo "<h2>Error al enviar el pedido: {$mail->ErrorInfo}</h2>";
 }
+
+curl_close($ch);
 ?>
