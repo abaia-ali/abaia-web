@@ -14,6 +14,7 @@
         <a href="eventos.php">Eventos</a>
         <a href="productos.php">Productos</a>
         <a href="contacto.php">Contacto</a>
+        <a href="productos.php">Productos</a>
     </nav>
 </header>
 
