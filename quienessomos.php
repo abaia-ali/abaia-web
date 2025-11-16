@@ -2,15 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Quiénes somos - ABAIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos - ABAIA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Quiénes somos</h1></header>
-    <main>
-        <p>Somos una asociación que trabaja para mejorar la vida de las personas. Organizamos eventos solidarios, ayudamos a familias y colaboramos con otras organizaciones.</p>
-        <p>Nuestro objetivo es crear una comunidad más unida y solidaria.</p>
-    </main>
-    <footer><a href="index.php">Volver al inicio</a></footer>
+
+<header class="header">
+    <h1>ABAIA - Asociación</h1>
+    <nav>
+        <a href="index.php">Inicio</a>
+        <a href="quienes-somos.php" class="active">Quiénes Somos</a>
+        <a href="eventos.php">Eventos</a>
+        <a href="productos.php">Productos</a>
+        <a href="contacto.php">Contacto</a>
+    </nav>
+</header>
+
+<section class="hero-qs">
+    <h2>¿Quiénes Somos?</h2>
+</section>
+
+<section class="contenido">
+    <p>
+        <strong>ABAIA</strong> es una entidad sin ánimo de lucro creada en <strong>2021</strong>.
+        Trabajamos para mejorar el bienestar, la autonomía, la inclusión y la autodeterminación 
+        de personas en riesgo de exclusión social.
+    </p>
+
+    <p>
+        Frente al brutal asedio que vive el pueblo palestino, nos levantamos.  
+        Realizamos acciones para visibilizar la situación en Gaza, dar voz a familias afectadas 
+        y recaudar donaciones a través de la venta de artesanía.  
+        Toda la ayuda recaudada se envía íntegramente a Gaza.
+    </p>
+
+    <div class="foto-section">
+        <img src="img/equipo.jpg" alt="Equipo ABAIA">
+        <p class="pie">Nuestro equipo y voluntariado trabajando por la causa.</p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 ABAIA - Asociación sin ánimo de lucro</p>
+</footer>
+
 </body>
 </html>
