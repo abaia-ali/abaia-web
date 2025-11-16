@@ -1,19 +1,32 @@
 <?php
-$producto = $_POST['producto'];
-$precio = $_POST['precio'];
-$nombre = $_POST['nombre'];
-$email = $_POST['email'];
-$direccion = $_POST['direccion'];
 
-$to = "abdelalilahiaoui8@gmail.com";  // <<--- CAMBIA ESTO
+// Evita errores si acceden sin enviar el formulario
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    die("<h2>No puedes acceder directamente a esta página.</h2>");
+}
+
+// Comprobamos cada campo antes de leerlo
+$producto  = $_POST['producto']  ?? null;
+$precio    = $_POST['precio']    ?? null;
+$nombre    = $_POST['nombre']    ?? null;
+$email     = $_POST['email']     ?? null;
+$direccion = $_POST['direccion'] ?? null;
+
+// Si falta algo → error
+if (!$producto || !$precio || !$nombre || !$email || !$direccion) {
+    die("<h2>Error: faltan datos del pedido.</h2>");
+}
+
+$to = "abdelalilahiaoui8@gmail.com";
 $subject = "Nuevo pedido ABAIA: $producto";
 
-$message = "Has recibido un nuevo pedido:\n\n" .
-           "Producto: $producto\n" .
-           "Precio: $precio €\n" .
-           "Nombre: $nombre\n" .
-           "Email: $email\n" .
-           "Dirección:\n$direccion\n";
+$message =
+"Has recibido un nuevo pedido:\n\n" .
+"Producto: $producto\n" .
+"Precio: $precio €\n" .
+"Nombre: $nombre\n" .
+"Email: $email\n" .
+"Dirección:\n$direccion\n";
 
 $headers = "From: no-reply@abaia.es";
 
