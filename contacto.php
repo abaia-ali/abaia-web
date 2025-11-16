@@ -2,40 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Contacto - Asociación ABAIA</title>
+    <title>Contacto - ABAIA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header><h1>Contacto</h1></header>
+    <main>
+        <form action="contacto.php" method="post">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required><br>
+            <label>Email:</label>
+            <input type="email" name="email" required><br>
+            <label>Mensaje:</label>
+            <textarea name="mensaje" rows="4" required></textarea><br>
+            <button type="submit">Enviar</button>
+        </form>
 
-<div class="container">
-
-    <h1>Contacto</h1>
-    <p>Si quieres ponerte en contacto con nuestra asociación, puedes escribirnos usando este formulario.</p>
-
-    <form action="https://formsubmit.co/ainhoaptaboada@gmail.com" method="POST">
-
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
-
-        <label>Email:</label>
-        <input type="email" name="email" required>
-
-        <label>Mensaje:</label>
-        <textarea name="mensaje" rows="5" required></textarea>
-
-        <!-- Opciones ocultas para FormSubmit -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://www.abaia.es/gracias.php">
-
-        <button type="submit">Enviar mensaje</button>
-
-    </form>
-
-    <br>
-    <a href="index.php">Volver al inicio</a>
-
-</div>
-
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            echo "<p>Gracias, " . htmlspecialchars($_POST['nombre']) . ". Tu mensaje ha sido enviado correctamente.</p>";
+        }
+        ?>
+    </main>
+    <footer><a href="index.php">Volver al inicio</a></footer>
 </body>
 </html>
