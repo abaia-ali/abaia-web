@@ -1,14 +1,15 @@
-# Usamos PHP 8.1 con Apache
-FROM php:8.1-apache
+# Base PHP con Apache
+FROM php:8.2-apache
 
-# Instalar mysqli y extensiones necesarias
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Instalar PostgreSQL PDO
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
 
-# Copiar todo tu proyecto al contenedor
+# Copiar tu proyecto desde GitHub
 COPY . /var/www/html/
 
-# Dar permisos correctos al directorio web
-RUN chown -R www-data:www-data /var/www/html/
+# Asegurar permisos
+RUN chown -R www-data:www-data /var/www/html
 
-# Exponer el puerto 80
+# Exponer puerto
 EXPOSE 80
