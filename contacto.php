@@ -2,31 +2,40 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Contacto - ABAIA</title>
+    <title>Contacto - Asociación ABAIA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+
+<div class="container">
+
     <h1>Contacto</h1>
-    <nav>
-        <a href="index.php">Inicio</a>
-        <a href="contacto.php">Contacto</a>
-    </nav>
-</header>
+    <p>Si quieres ponerte en contacto con nuestra asociación, puedes escribirnos usando este formulario.</p>
 
-<main>
-<h2>Envíanos un mensaje</h2>
-<form method="post" action="enviar.php">
-    <label>Nombre:</label><br>
-    <input type="text" name="nombre" required><br><br>
-    <label>Mensaje:</label><br>
-    <textarea name="mensaje" rows="4" cols="40" required></textarea><br><br>
-    <input type="submit" value="Enviar">
-</form>
-</main>
+    <form action="https://formsubmit.co/ainhoaptaboada@gmail.com" method="POST">
 
-<footer>
-    <p>&copy; 2025 Asociación ABAIA</p>
-</footer>
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Mensaje:</label>
+        <textarea name="mensaje" rows="5" required></textarea>
+
+        <!-- Opciones ocultas para FormSubmit -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.abaia.es/gracias.php">
+
+        <button type="submit">Enviar mensaje</button>
+
+    </form>
+
+    <br>
+    <a href="index.php">Volver al inicio</a>
+
+</div>
+
 </body>
 </html>
