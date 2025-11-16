@@ -37,3 +37,29 @@ footer {
     text-align: center;
     padding: 10px;
 }
+.producto {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn {
+    display: inline-block;
+    background: #004d7a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: #0073aa;
+}
