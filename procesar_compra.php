@@ -1,14 +1,17 @@
 <?php
+// Incluir PHPMailer sin Composer
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php'; // PHPMailer cargado con Composer
-
-// Cargar variables de entorno de Render (ya definidas en tu panel)
+// Leer variables de entorno definidas en Render
 $smtpUser = getenv('SMTP_USER');
 $smtpPass = getenv('SMTP_PASS');
 
-// Evita errores si acceden directamente sin enviar el formulario
+// Evita acceso directo
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     die("<h2>No puedes acceder directamente a esta página.</h2>");
 }
