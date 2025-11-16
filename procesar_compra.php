@@ -11,31 +11,35 @@ $nombre    = $_POST['nombre']    ?? null;
 $email     = $_POST['email']     ?? null;
 $direccion = $_POST['direccion'] ?? null;
 
-// Validación
+// Validación básica
 if (!$producto || !$precio || !$nombre || !$email || !$direccion) {
     die("<h2>Error: faltan datos del pedido.</h2>");
 }
 
-// Conexión a la base de datos usando Env Group
-$host = getenv('DB_HOST');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASS');
+try {
+    // Conexión PostgreSQL usando variables de entorno de Render
+    $dsn = "pgsql:host=" . getenv('DB_HOST') . ";port=" . getenv('DB_PORT') . ";dbname=" . getenv('DB_NAME');
+    $pdo = new PDO($dsn, getenv('DB_USER'), getenv('DB_PASS'), [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
 
-$mysqli = new mysqli($host, $user, $pass, $db);
-if ($mysqli->connect_errno) {
-    die("<h2>Error al conectar con la base de datos: ".$mysqli->connect_error."</h2>");
+    // Insertar pedido en la tabla
+    $stmt = $pdo->prepare("
+        INSERT INTO pedidos (producto, precio, nombre, email, direccion)
+        VALUES (:producto, :precio, :nombre, :email, :direccion)
+    ");
+
+    $stmt->execute([
+        ':producto'  => $producto,
+        ':precio'    => $precio,
+        ':nombre'    => $nombre,
+        ':email'     => $email,
+        ':direccion' => $direccion
+    ]);
+
+    echo "<h2>Pedido guardado correctamente. Gracias por colaborar ❤️</h2>";
+
+} catch (PDOException $e) {
+    echo "<h2>Error al guardar el pedido: " . htmlspecialchars($e->getMessage()) . "</h2>";
 }
-
-// Guardar pedido
-$stmt = $mysqli->prepare("INSERT INTO pedidos (producto, precio, nombre, email, direccion, visto) VALUES (?, ?, ?, ?, ?, 0)");
-$stmt->bind_param("sdsss", $producto, $precio, $nombre, $email, $direccion);
-if ($stmt->execute()) {
-    echo "<h2>Pedido enviado correctamente. Gracias por colaborar ❤️</h2>";
-} else {
-    echo "<h2>Error al guardar el pedido: ".$stmt->error."</h2>";
-}
-
-$stmt->close();
-$mysqli->close();
 ?>
