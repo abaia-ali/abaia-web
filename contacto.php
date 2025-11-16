@@ -20,8 +20,9 @@
 
             <!-- Imagen de contacto -->
 <div style="text-align: center; margin-top: 20px;">
-    <img src="img/contacto.jpg" alt="Imagen de contacto" style="max-width: 250px; width: 100%; border-radius: 10px;">
+    <img src="img/contacto.jpg" alt="Imagen de contacto" style="width: 50%; border-radius: 10px;">
 </div>
+
 
 
         <?php
