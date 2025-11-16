@@ -7,10 +7,11 @@
 </head>
 <body>
 <header>
-    <h1>Asociación ABAIA</h1>
+    <h1>ABAIA - Asociación</h1>
     <nav>
         <a href="index.php">Inicio</a>
-        <a href="quienes.php">Quiénes Somos</a>
+        <a href="quienes-somos.php" style="text-decoration: underline;">Quiénes Somos</a>
+        <a href="eventos.php">Eventos</a>
         <a href="productos.php">Productos</a>
         <a href="contacto.php">Contacto</a>
     </nav>
