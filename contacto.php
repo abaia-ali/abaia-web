@@ -19,10 +19,10 @@
             </form>
 
             <!-- Imagen de contacto -->
-            <div class="contacto-img">
-                <img src="img/contacto.jpg" alt="Imagen de contacto">
-            </div>
-        </div>
+<div style="text-align: center; margin-top: 20px;">
+    <img src="img/contacto.jpg" alt="Imagen de contacto" style="max-width: 250px; width: 100%; border-radius: 10px;">
+</div>
+
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
