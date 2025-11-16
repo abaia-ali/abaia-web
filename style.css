@@ -152,3 +152,10 @@ footer {
     color: green;
     font-weight: bold;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e0e7ff, #f7faff);
+    margin: 0;
+    padding: 0;
+}
