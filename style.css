@@ -1,7 +1,7 @@
 /* ====== Estilos generales ====== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f6f8fa;
+    background: linear-gradient(135deg, #eef3f8, #dce7f3);
     margin: 0;
     padding: 0;
 }
@@ -151,11 +151,4 @@ footer {
     margin-top: 15px;
     color: green;
     font-weight: bold;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e0e7ff, #f7faff);
-    margin: 0;
-    padding: 0;
 }
