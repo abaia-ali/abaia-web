@@ -16,19 +16,19 @@ if (!$producto || !$precio || !$nombre || !$email || !$direccion) {
     die("<h2>Error: faltan datos del pedido.</h2>");
 }
 
-// Datos del correo
-$apiKey = getenv('BREVO_API_KEY'); // Tu clave en Environment Variables
-$to = "abdelalilahiaoui8@gmail.com"; // Tu correo donde recibirás los pedidos
+// Preparar datos del correo
+$apiKey = getenv('BREVO_API_KEY'); // Variable de entorno en Render
+$to = "abdelalilahiaoui8@gmail.com";
 
 $subject = "Nuevo pedido ABAIA: $producto";
-$content = "Has recibido un nuevo pedido:\n\n".
-           "Producto: $producto\n".
-           "Precio: $precio €\n".
-           "Nombre: $nombre\n".
-           "Email: $email\n".
+$content = "Has recibido un nuevo pedido:\n\n" .
+           "Producto: $producto\n" .
+           "Precio: $precio €\n" .
+           "Nombre: $nombre\n" .
+           "Email: $email\n" .
            "Dirección:\n$direccion";
 
-// Enviar correo usando la API de Brevo
+// Datos para la API
 $data = [
     "sender" => ["name" => "ABAIA", "email" => "no-reply@abaia.es"],
     "to" => [["email" => $to]],
@@ -36,6 +36,7 @@ $data = [
     "textContent" => $content
 ];
 
+// Enviar correo con cURL
 $ch = curl_init("https://api.brevo.com/v3/smtp/email");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -47,18 +48,15 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
 $response = curl_exec($ch);
-
-if(curl_errno($ch)) {
-    echo "<h2>Error al enviar el pedido: ".curl_error($ch)."</h2>";
-} else {
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    if ($httpCode === 201 || $httpCode === 200) {
-        echo "<h2>Pedido enviado correctamente. Gracias por colaborar ❤️</h2>";
-    } else {
-        echo "<h2>Error al enviar el pedido. Código HTTP: $httpCode</h2>";
-        echo "<pre>Respuesta Brevo: $response</pre>";
-    }
-}
-
+$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
+
+// Mostrar resultados
+if ($http_code >= 200 && $http_code < 300) {
+    echo "<h2>Pedido enviado correctamente. Gracias por colaborar ❤️</h2>";
+} else {
+    echo "<h2>Error al enviar el pedido.</h2>";
+    echo "<p>Código HTTP: $http_code</p>";
+    echo "<p>Respuesta Brevo: $response</p>";
+}
 ?>
