@@ -1,51 +1,71 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-
-// Evitar acceso directo
+// Evita acceso directo
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    die("No puedes acceder directamente a esta página.");
+    die("<h2>No puedes acceder directamente a esta página.</h2>");
 }
 
 // Recoger datos del formulario
-$producto  = $_POST['producto'] ?? '';
-$precio    = $_POST['precio'] ?? '';
-$nombre    = $_POST['nombre'] ?? '';
-$email     = $_POST['email'] ?? '';
-$direccion = $_POST['direccion'] ?? '';
+$producto  = $_POST['producto']  ?? null;
+$precio    = $_POST['precio']    ?? null;
+$nombre    = $_POST['nombre']    ?? null;
+$email     = $_POST['email']     ?? null;
+$direccion = $_POST['direccion'] ?? null;
 
-if(!$producto || !$precio || !$nombre || !$email || !$direccion){
-    die("Faltan datos del pedido.");
+// Validación básica
+if (!$producto || !$precio || !$nombre || !$email || !$direccion) {
+    die("<h2>Error: faltan datos del pedido.</h2>");
 }
 
-// Configurar PHPMailer
-$mail = new PHPMailer(true);
+// Configuración SMTP Brevo
+$smtpServer = "smtp-relay.brevo.com";
+$smtpPort   = 587; // para TLS
+$smtpUser   = "abdelali.lahiaoui@educa.madrid.org"; // cuenta activa
+$smtpPass   = getenv('BREVO_SMTP_KEY'); // contraseña SMTP guardada como variable de entorno
 
-try {
-    $mail->isSMTP();
-    $mail->Host       = 'smtp-relay.brevo.com';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = '9bc00d001@smtp-brevo.com'; // tu login SMTP
-    $mail->Password   = getenv('BREVO_API_KEY');    // tu SMTP Key como variable de entorno
-    $mail->SMTPSecure = 'tls';                       // TLS para puerto 587
-    $mail->Port       = 587;
+// Preparar correo
+$to      = "abdelalilahiaoui8@gmail.com";
+$subject = "Nuevo pedido ABAIA: $producto";
+$content = "Has recibido un nuevo pedido:\n\n".
+           "Producto: $producto\n".
+           "Precio: $precio €\n".
+           "Nombre: $nombre\n".
+           "Email: $email\n".
+           "Dirección:\n$direccion";
 
-    // Remitente autorizado en Brevo
-    $mail->setFrom('abdelali.lahiaoui@educa.madrid.org', 'ABAIA');
-    // Destinatario (tú)
-    $mail->addAddress('abdelali.lahiaoui@educa.madrid.org', 'Abdelali');
+// Enviar correo usando cURL (API SMTP de Brevo)
+$data = [
+    "sender" => ["name" => "ABAIA", "email" => $smtpUser],
+    "to"     => [["email" => $to]],
+    "subject"=> $subject,
+    "textContent"=> $content
+];
 
-    // Contenido del correo
-    $mail->isHTML(false);
-    $mail->Subject = "Nuevo pedido ABAIA: $producto";
-    $mail->Body    = "Has recibido un nuevo pedido:\n\nProducto: $producto\nPrecio: $precio €\nNombre: $nombre\nEmail: $email\nDirección:\n$direccion";
+$ch = curl_init("https://api.brevo.com/v3/smtp/email");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "accept: application/json",
+    "api-key: $smtpPass",
+    "content-type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+// Timeout para que no quede cargando
+curl_setopt($ch, CURLOPT_TIMEOUT, 10); // segundos
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 
-    $mail->send();
-    echo "Pedido enviado correctamente. Gracias por colaborar ❤️";
-} catch (Exception $e) {
-    echo "Error al enviar el pedido: {$mail->ErrorInfo}";
+$response = curl_exec($ch);
+
+if(curl_errno($ch)) {
+    echo "<h2>Error al enviar el pedido: ".curl_error($ch)."</h2>";
+} else {
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if($httpCode == 201 || $httpCode == 200){
+        echo "<h2>Pedido enviado correctamente. Gracias por colaborar ❤️</h2>";
+    } else {
+        echo "<h2>Error al enviar el pedido. Código HTTP: $httpCode</h2>";
+        echo "<pre>Respuesta Brevo: $response</pre>";
+    }
 }
+
+curl_close($ch);
+?>
