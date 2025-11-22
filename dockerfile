@@ -1,15 +1,14 @@
 # Base PHP con Apache
 FROM php:8.2-apache
 
-# Instalar PostgreSQL PDO
+# Instalar PostgreSQL PDO si lo necesitas
 RUN apt-get update && apt-get install -y libpq-dev \
     && docker-php-ext-install pdo pdo_pgsql
 
-# Copiar tu proyecto desde GitHub
+# Copiar proyecto
 COPY . /var/www/html/
 
-# Asegurar permisos
+# Permisos
 RUN chown -R www-data:www-data /var/www/html
 
-# Exponer puerto
 EXPOSE 80
