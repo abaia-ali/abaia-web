@@ -1,31 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Asociación ABAIA</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-    <h1>ABAIA - Asociación</h1>
-    <nav>
-        <a href="index.php">Inicio</a>
-        <a href="quienes-somos.php" style="text-decoration: underline;">Quiénes Somos</a>
-        <a href="eventos.php">Eventos</a>
-        <a href="productos.php">Productos</a>
-        <a href="contacto.php">Contacto</a>
-    </nav>
-</header>
+<?php include("header.php"); ?>
 
-<main>
-<?php
-echo "<h2>Bienvenido a nuestra asociación</h2>";
-echo "<p>ABAIA apoya proyectos solidarios y eventos comunitarios.</p>";
-?>
-</main>
+<div class="p-4 bg-light rounded-3 text-center shadow-sm">
+    <h1 class="display-6">Bienvenido a ABAIA</h1>
+    <p class="lead">Somos una asociación que apoya a familias en riesgo y recauda ayuda para Gaza mediante proyectos solidarios.</p>
 
-<footer>
-    <p>&copy; 2025 Asociación ABAIA</p>
-</footer>
-</body>
-</html>
+    <div class="d-flex justify-content-center mt-3">
+        <a href="quienes-somos.php" class="btn btn-primary mx-2">¿Quiénes somos?</a>
+        <a href="productos.php" class="btn btn-success mx-2">Ver productos solidarios</a>
+    </div>
+</div>
+
+<section class="mt-4">
+    <h2>Últimos eventos</h2>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="img/evento1.jpg" class="card-img-top" alt="Evento 1">
+                <div class="card-body">
+                    <h5 class="card-title">Mercadillo solidario</h5>
+                    <p class="card-text">Venta de artesanía para enviar ayuda.</p>
+                    <a href="eventos.php" class="btn btn-outline-primary w-100">Ver evento</a>
+                </div>
+            </div>
+        </div>
+        <!-- puedes añadir más tarjetas -->
+    </div>
+</section>
+
+<?php include("footer.php"); ?>
