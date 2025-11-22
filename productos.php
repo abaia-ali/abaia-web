@@ -76,7 +76,7 @@
         <!-- Coleteros blanco y negro -->
         <div class="col">
             <div class="card">
-                <img src="img/Coleteros.jpg" class="card-img-top" alt="Coleteros">
+                <img src="img/coleteros.jpg" class="card-img-top" alt="Coleteros">
                 <div class="card-body">
                     <h5 class="card-title">Coleteros Kofiya (B/N)</h5>
                     <p class="card-text">Donación: 5€</p>
@@ -112,7 +112,7 @@
         <!-- Marcapáginas -->
         <div class="col">
             <div class="card">
-                <img src="img/marcapaginas.jpg" class="card-img-top" alt="Marcapaginas">
+                <img src="img/marcapginas.jpg" class="card-img-top" alt="Marcapaginas">
                 <div class="card-body">
                     <h5 class="card-title">Marcapáginas solidarios</h5>
                     <p class="card-text">Donación: 3€</p>
