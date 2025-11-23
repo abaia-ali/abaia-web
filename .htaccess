@@ -1,5 +1,13 @@
 RewriteEngine On
+RewriteBase /
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# Si el archivo existe, lo sirve
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Si la carpeta existe, la sirve
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirige /inicio → /inicio.php
 RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.php [L]
