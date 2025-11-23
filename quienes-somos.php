@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiénes Somos - ABAIA</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<?php include 'header.php'; ?>
 
-<header>
-    <h1>ABAIA - Asociación</h1>
-    <nav>
-        <a href="index.php">Inicio</a>
-        <a href="quienes-somos.php" style="text-decoration: underline;">Quiénes Somos</a>
-        <a href="eventos.php">Eventos</a>
-        <a href="productos.php">Productos</a>
-        <a href="contacto.php">Contacto</a>
-    </nav>
-</header>
-
-<main>
+<main class="container mt-4">
     <section>
         <h2>¿Quiénes Somos?</h2>
 
@@ -36,16 +17,11 @@
             se envía íntegramente a Gaza.
         </p>
 
-        <div style="text-align: center; margin-top: 20px;">
-            <img src="img/equipo.jpg" alt="Equipo ABAIA" style="width: 70%; border-radius: 10px;">
-            <p style="font-size: 14px; color: #555;">Nuestro equipo y voluntariado trabajando por la causa.</p>
+        <div class="text-center mt-4">
+            <img src="/img/equipo.jpg" alt="Equipo ABAIA" class="img-fluid rounded" style="max-width: 70%;">
+            <p class="text-muted" style="font-size: 14px;">Nuestro equipo y voluntariado trabajando por la causa.</p>
         </div>
     </section>
 </main>
 
-<footer>
-    <p>© 2025 ABAIA - Asociación sin ánimo de lucro</p>
-</footer>
-
-</body>
-</html>
+<?php include 'footer.php'; ?>
