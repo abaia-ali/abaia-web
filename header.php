@@ -23,11 +23,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-  <li class="nav-item"><a class="nav-link" href="inicio">Inicio</a></li>
-<li class="nav-item"><a class="nav-link" href="quienes-somos">Quiénes somos</a></li>
-<li class="nav-item"><a class="nav-link" href="productos">Productos</a></li>
-<li class="nav-item"><a class="nav-link" href="eventos">Eventos</a></li>
-<li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
+<li class="nav-item"><a class="nav-link" href="/index.php">Inicio</a></li>
+<li class="nav-item"><a class="nav-link" href="/quienes-somos.php">Quiénes somos</a></li>
+<li class="nav-item"><a class="nav-link" href="/productos.php">Productos</a></li>
+<li class="nav-item"><a class="nav-link" href="/eventos.php">Eventos</a></li>
+<li class="nav-item"><a class="nav-link" href="/contacto.php">Contacto</a></li>
+
 
   </div>
 </nav>
