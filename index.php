@@ -15,7 +15,7 @@
     <div class="row g-3">
         <div class="col-md-4">
             <div class="card">
-                <img src="img/evento1.jpg" class="card-img-top" alt="Evento 1">
+                <img src="img/evento4.jpg" class="card-img-top" alt="Evento 1">
                 <div class="card-body">
                     <h5 class="card-title">Mercadillo solidario</h5>
                     <p class="card-text">Venta de artesanía para enviar ayuda.</p>
@@ -23,7 +23,6 @@
                 </div>
             </div>
         </div>
-        <!-- puedes añadir más tarjetas -->
     </div>
 </section>
 
