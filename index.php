@@ -11,16 +11,15 @@
 </div>
 
 <section class="mt-4">
-    <h2>Últimos eventos</h2>
-    <div class="row g-3">
-        <div class="col-md-4">
-            <div class="card">
-                <img src="img/evento4.jpg" class="card-img-top" alt="Evento 1">
-                <div class="card-body">
-                    <h5 class="card-title">Mercadillo solidario</h5>
-                    <p class="card-text">Venta de artesanía para enviar ayuda.</p>
-                    <a href="eventos.php" class="btn btn-outline-primary w-100">Ver evento</a>
-                </div>
+    <h2 class="text-center">Últimos eventos</h2>
+
+    <div class="d-flex justify-content-center mt-3">
+        <div class="card" style="width: 18rem;">
+            <img src="img/evento1.jpg" class="card-img-top" alt="Evento 1">
+            <div class="card-body">
+                <h5 class="card-title">Mercadillo solidario</h5>
+                <p class="card-text">Venta de artesanía para enviar ayuda.</p>
+                <a href="eventos.php" class="btn btn-outline-primary w-100">Ver evento</a>
             </div>
         </div>
     </div>
