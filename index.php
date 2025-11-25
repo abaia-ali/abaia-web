@@ -15,7 +15,7 @@
 
     <div class="d-flex justify-content-center mt-3">
         <div class="card" style="width: 18rem;">
-            <img src="img/evento1.jpg" class="card-img-top" alt="Evento 1">
+            <img src="img/evento1-1.jpg" class="card-img-top" alt="Evento 1">
             <div class="card-body">
                 <h5 class="card-title">Mercadillo solidario</h5>
                 <p class="card-text">Venta de artesanía para enviar ayuda.</p>
