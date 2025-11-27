@@ -8,10 +8,15 @@ $wa_text = rawurlencode("Hola, quiero colaborar con: $producto");
 $whatsapp_link = "https://wa.me/$whatsapp_number?text=$wa_text";
 ?>
 
-<h2>Gracias</h2>
-<p>Has elegido: <?php echo htmlspecialchars($producto); ?></p>
+<div class="p-4 bg-light rounded-3 text-center shadow-sm">
+    <h2>Gracias</h2>
+    <p class="lead">Has elegido: <strong><?php echo htmlspecialchars($producto); ?></strong></p>
 
-<a href="<?php echo $google_form; ?>" target="_blank">Formulario</a>
-<a href="<?php echo $whatsapp_link; ?>" target="_blank">WhatsApp</a>
+    <div class="d-flex justify-content-center mt-3 flex-wrap">
+        <a href="<?php echo $google_form; ?>" target="_blank" class="btn btn-primary m-2">Formulario</a>
+        <a href="<?php echo $whatsapp_link; ?>" target="_blank" class="btn btn-success m-2">WhatsApp</a>
+        <a href="index.php" class="btn btn-outline-secondary m-2">Volver al inicio</a>
+    </div>
+</div>
 
 <?php include("footer.php"); ?>
