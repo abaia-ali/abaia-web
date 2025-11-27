@@ -7,12 +7,12 @@
 </p>
 
 <style>
-.event-img-box img {
-    width: 100%;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    object-fit: cover;
+.event-img-box {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
 }
+
 </style>
 
 <div class="row g-4">
