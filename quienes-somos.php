@@ -17,7 +17,7 @@
     </p>
 
     <div class="text-center mt-4">
-        <img src="/img/equipo.jpg" alt="Equipo ABAIA" class="img-fluid rounded" style="max-width: 70%;">
+        <img src="/img/logo.png" alt="Equipo ABAIA" class="img-fluid rounded" style="max-width: 70%;">
         <p class="text-muted" style="font-size: 14px;">Nuestro equipo y voluntariado trabajando por la causa.</p>
     </div>
 </section>
