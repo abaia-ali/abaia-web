@@ -2,7 +2,6 @@
 
 <section>
     <h2>¿Quiénes Somos?</h2>
-
     <p>
         <strong>ABAIA</strong> es una entidad sin ánimo de lucro creada en <strong>2021</strong>.
         Trabajamos para mejorar el bienestar, la autonomía, la inclusión y la autodeterminación
