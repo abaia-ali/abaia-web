@@ -18,7 +18,7 @@
                 <img src="img/pulseras.jpg" class="card-img-top" alt="Pulseras">
                 <div class="card-body">
                     <h5 class="card-title">Pulseras artesanas</h5>
-                    <p class="card-text">Donación: 4€</p>
+                    <p class="card-text">Donación: 3€</p>
                     <a href="gracias.php?producto=Pulseras" class="btn btn-primary w-100">Quiero colaborar</a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <img src="img/llavero.jpg" class="card-img-top" alt="Llavero">
                 <div class="card-body">
                     <h5 class="card-title">Llavero solidario</h5>
-                    <p class="card-text">Donación: 1€</p>
+                    <p class="card-text">Donación: 5€</p>
                     <a href="gracias.php?producto=Llavero" class="btn btn-primary w-100">Quiero colaborar</a>
                 </div>
             </div>
