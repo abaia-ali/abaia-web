@@ -5,13 +5,13 @@
     <p class="lead">Somos una asociación que apoya a familias en riesgo y recauda ayuda para Gaza mediante proyectos solidarios.</p>
 
     <div class="d-flex justify-content-center mt-3">
-        <a href="quienes-somos.php" class="btn btn-primary mx-2">¿Quiénes somos?</a>
-        <a href="productos.php" class="btn btn-success mx-2">Ver productos solidarios</a>
+        <a href="/quienes-somos" class="btn btn-primary mx-2">¿Quiénes somos?</a>
+        <a href="/productos" class="btn btn-success mx-2">Ver productos solidarios</a>
     </div>
 </div>
 
 <section class="mt-4">
-    <h2 class="text-center">Últimos eventos</h2>
+    <h2 class="text-center">Próximos eventos</h2>
 
     <div class="d-flex justify-content-center mt-3">
         <div class="card" style="width: 18rem;">
@@ -19,7 +19,7 @@
             <div class="card-body">
                 <h5 class="card-title">Mercadillo solidario</h5>
                 <p class="card-text">Venta de artesanía para enviar ayuda.</p>
-                <a href="eventos.php" class="btn btn-outline-primary w-100">Ver evento</a>
+                <a href="/eventos" class="btn btn-outline-primary w-100">Ver evento</a>
             </div>
         </div>
     </div>
