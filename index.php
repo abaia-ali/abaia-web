@@ -1,31 +1,27 @@
 <?php include("header.php"); ?>
 
-<main class="container mt-4">
-
-
-<div class="p-4 bg-light rounded-3 text-center shadow-sm">
-    <h1 class="display-6">Bienvenido a ABAIA</h1>
+<div class="p-4 bg-light rounded-3 text-center shadow-sm">  
+    <h1 class="display-6">Bienvenido a ABAIA</h1>  
     <p class="lead">
-        Somos una asociación que apoya a familias en riesgo y recauda ayuda para Gaza mediante proyectos solidarios.
+        Somos una asociación que apoya a familias y realizamos actividades solidarias para apoyar a Gaza.
     </p>
 
-    <div class="d-flex justify-content-center mt-3">
-        <a href="/quienes-somos" class="btn btn-primary mx-2">¿Quiénes somos?</a>
-        <a href="/productos" class="btn btn-success mx-2">Ver productos solidarios</a>
+    <div class="d-flex justify-content-center mt-3">  
+        <a href="/quienes-somos" class="btn btn-primary mx-2">¿Quiénes somos?</a>  
+        <a href="/productos" class="btn btn-success mx-2">Ver productos solidarios</a>  
     </div>
 </div>
 
+<section class="mt-4">  
+    <h2 class="text-center">Próximos eventos</h2>  
 
+    <div class="d-flex justify-content-center mt-3">  
+        <div class="card" style="width: 18rem;">  
 
-<section class="mt-5">
-    <h2 class="text-center">Próximos eventos</h2>
+            <img src="img/proximo-evento.jpg" class="card-img-top" alt="Próximo evento ABAIA">
 
-    <div class="d-flex justify-content-center mt-4">
-        <div class="card shadow-sm" style="width: 20rem;">
-            <img src="img/proximo-evento.jpg" class="card-img-top" alt="Taller infantil por Palestina">
-
-            <div class="card-body">
-                <h5 class="card-title">Taller Infantil por Palestina</h5>
+            <div class="card-body">  
+                <h5 class="card-title">Taller Infantil por Palestina</h5>  
 
                 <p class="card-text">
                     Actividad creativa donde niñas y niños harán dibujos y mensajes que enviaremos a Gaza.  
@@ -33,16 +29,15 @@
                     <br><br>
                     <strong>Lugar:</strong> CSO La Rosa, C/ Bastero 1, Madrid<br>
                     <strong>Fecha:</strong> Viernes 19 de diciembre, 18:00–20:00h
-                </p>
+                </p>  
 
                 <a href="/eventos" class="btn btn-outline-primary w-100">
                     Ver más eventos
-                </a>
-            </div>
-        </div>
+                </a>  
+            </div>  
+        </div>  
     </div>
-</section>
 
-</main>
+</section>
 
 <?php include("footer.php"); ?>
