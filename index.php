@@ -31,7 +31,7 @@
                     <strong>Fecha:</strong> Viernes 19 de diciembre, 18:00–20:00h
                 </p>  
 
-                <a href="/eventos" class="btn btn-outline-primary w-100">
+                <a href="/eventos.php" class="btn btn-outline-primary w-100">
                     Ver más eventos
                 </a>  
             </div>  
