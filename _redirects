@@ -1,6 +1,8 @@
-/inicio           /index.php         200
-/quienes-somos    /quienes-somos.php 200
-/eventos          /eventos.php       200
-/productos        /productos.php     200
-/contacto         /contacto.php      200
-/gracias          /gracias.php       200
+/              /index.php          200
+/inicio        /index.php          200
+/quienes-somos /quienes-somos.php  200
+/productos     /productos.php      200
+/eventos       /eventos.php        200
+/contacto      /contacto.php       200
+/gracias       /gracias.php        200
+/info          /info.php           200
