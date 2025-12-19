@@ -7,8 +7,8 @@
     </p>
 
     <div class="d-flex justify-content-center mt-3">  
-        <a href="/quienes-somos" class="btn btn-primary mx-2">¿Quiénes somos?</a>  
-        <a href="/productos" class="btn btn-success mx-2">Ver productos solidarios</a>  
+        <a href="/quienes-somos.php" class="btn btn-primary mx-2">¿Quiénes somos?</a>  
+        <a href="/productos.php" class="btn btn-success mx-2">Ver productos solidarios</a>  
     </div>
 </div>
 
